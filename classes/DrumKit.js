@@ -2,11 +2,16 @@ class DrumKit {
     constructor() {
         this.pads = document.querySelectorAll(".pad");
         this.playBtn = document.querySelector(".play")
+        this.currentSnare = './allSounds/allSounds/snare-acoustic01.wav'
+        this.currentSnare = './allSounds/allSounds/hihat-acoustic01.wav'
+        this.currentHihat = './allSounds/allSounds/kick-classic.wav'
         this.kickAudio = document.querySelector(".kick-sound");
         this.snareAudio = document.querySelector(".snare-sound");
         this.hihatAudio = document.querySelector(".hihat-sound");
         this.index = 0;
         this.bpm = 150;
+        this.isPlaying = null;
+        this.selects = document.querySelectorAll("select")
     }
     activePad() {
         this.classList.toggle("active")
@@ -38,10 +43,45 @@ class DrumKit {
         this.index++
     }
     start() {
-        console.log(this)
         const interval = (60/this.bpm) * 1000;
-        setInterval(() => {
-        this.repeat()
-        }, interval);
+        if(this.isPlaying){
+             //clear interval
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+;
+        } else {
+            this.isPlaying = setInterval(() => {
+            this.repeat()
+            }, interval)
+        }
+    }
+    updateBtn() {
+        //NULL
+        if(!this.isPlaying) {
+            this.playBtn.innerText = "STOP";
+            this.playBtn.classList.add('active')
+        } else {
+            {
+                this.playBtn.innerText = "PLAY";
+                this.playBtn.classList.remove('active')
+            }
+        }
+    }
+
+    changeSound(e) {
+        const selectionName = e.target.name;
+        const selectionValue = e.target.value;
+        switch(selectionName) {
+            case "kick-select":            
+                this.kickAudio.src = selectionValue;
+                break;
+            case "snare-select":
+                this.snareAudio.src = selectionValue;
+                break;
+            case "hihat-select":
+                this.hihatAudio.src = selectionValue;
+                break;    
+        }
+
     }
 }
