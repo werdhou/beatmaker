@@ -22,25 +22,25 @@ i, svg {
 }
 
 .kick-pad {
-    background: rgb(123, 123, 255);
+    background: rgb(167, 167, 255);
 }
 
 .snare-pad {
-    background: rgb(255, 133, 77);
+    background: rgb(255, 157, 145);
 }
 
 .hihat-pad {
-    background: rgb(255, 123, 240);
+    background: rgb(255, 142, 242);
 }
 
 .kick-pad.active {
-    background: rgb(0, 0, 187);
+    background: rgb(15, 15, 128);
 }
 .snare-pad.active {
-    background: rgb(255, 91, 55);
+    background: rgb(255, 68, 27);
 }
 .hihat-pad.active {
-    background: rgb(179, 0, 179);
+    background: rgb(136, 24, 136);
 }
 
 
@@ -104,4 +104,13 @@ i, svg {
 select {
     padding: 1rem;
     font-size: 1rem;
+}
+
+@keyframes playTrack {
+    from{
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+}
 }
