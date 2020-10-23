@@ -99,6 +99,7 @@ i, svg {
     margin-top: 3rem;
     justify-content: center;
     border-radius: 1rem;
+    outline: none;
 }
 
 select {
