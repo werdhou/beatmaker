@@ -31,5 +31,5 @@ drumKit.tempoSlider.addEventListener("input", e => {
     drumKit.changeTempo(e);
 })
 drumKit.tempoSlider.addEventListener("change", e => {
-    drumKit.changeTempo(e);
+    drumKit.updateTempo(e);
 })
