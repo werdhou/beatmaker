@@ -118,18 +118,16 @@ class DrumKit {
     }
 
     changeTempo(e) {
-        const tempoText = document.querySelector('.tempo-nr');
-
+        const tempoText = document.querySelector(".tempo-nr");
         tempoText.innerText = e.target.value;
-    }
-
-    updateTempo () {
+      }
+      updateTempo(e) {
         this.bpm = e.target.value;
         clearInterval(this.isPlaying);
         this.isPlaying = null;
-        const playBtn = document.querySelector('.play');
-        if(playBtn.classList.contains('active')) {
-            this.start();
+        const playBtn = document.querySelector(".play");
+        if (playBtn.classList.contains("active")) {
+          this.start();
         }
-    }
+      }
 }
